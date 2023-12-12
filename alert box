@@ -1,0 +1,26 @@
+rflutter_alert: ^2.0.7
+
+import 'package:rflutter_alert/rflutter_alert.dart';
+
+AlertDialog alert = AlertDialog(
+                        title: Text("Hello"),
+                        content: Text("This close button is working."),
+                        actions: [
+                          TextButton(
+                            child: Text("OK"),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => dashboard2()),
+                              );
+                            },
+                          ),
+                        ],
+                      );
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert;
+                        },
+                      );
