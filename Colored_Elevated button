@@ -1,0 +1,16 @@
+ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  onPrimary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // border radius
+                  ),
+                ),
+                onPressed: () {
+                  // button press action
+                },
+                child: Text(
+                  'View Reply',
+                  style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+                ),
+              ),
