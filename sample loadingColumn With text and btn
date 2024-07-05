@@ -1,0 +1,33 @@
+Column(
+          children: [
+            Spacer(),
+            Row(
+              children: [
+                Spacer(),
+                Text(
+                  'data',
+                  style: TextStyle(fontSize: 40.0),
+                ),
+                Spacer(),
+              ],
+            ),
+            Row(
+              children: [
+                Spacer(),
+                ElevatedButton(
+                    onPressed: () {
+                      /*   Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => detectapp()),
+                      );*/
+                    },
+                    child: Text(
+                      'data',
+                      style: TextStyle(fontSize: 40.0),
+                    )),
+                Spacer(),
+              ],
+            ),
+            Spacer(),
+          ],
+        ),
