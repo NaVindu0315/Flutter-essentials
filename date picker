@@ -1,0 +1,63 @@
+import 'package:intl/intl.dart';
+
+
+String displaydate = "yyyy-mm-dd";
+  DateTime _selectedDate = DateTime.now();
+  final TextEditingController _dateController = TextEditingController();
+
+
+  @override
+  void initState() {
+    super.initState();
+    displaydate = DateFormat('yyyy-MM-dd').format(_selectedDate);
+  }
+
+
+   Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () async {
+                  final DateTime? picked = await showDatePicker(
+                    context: context,
+                    initialDate: _selectedDate,
+                    firstDate: DateTime(2020),
+                    lastDate: DateTime(2030),
+                  );
+                  if (picked != null) {
+                    setState(() {
+                      _selectedDate = picked;
+                      _dateController.text =
+                          DateFormat('yyyy-MM-dd').format(picked);
+                      displaydate = _dateController.text;
+                    });
+                  }
+                },
+                child: Text('$displaydate'),
+              ),
+              SizedBox(width: 10),
+              /*   Expanded(
+                child: TextField(
+                  controller: _dateController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Selected Date',
+                  ),
+                ),
+              ),*/
+              SizedBox(width: 10),
+              ElevatedButton(
+                onPressed: () {
+                  print(_dateController.text);
+                  setState(() {
+                    _selectedDate = DateTime.now();
+                    displaydate =
+                        DateFormat('yyyy-MM-dd').format(DateTime.now());
+                  });
+                  _selectedDate = DateTime.now();
+                  displaydate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+                },
+                child: Text('Print Date'),
+              ),
+            ],
+          ),
