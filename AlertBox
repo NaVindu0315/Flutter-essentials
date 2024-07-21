@@ -1,0 +1,22 @@
+   showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Success"),
+          content: Text("New image $photoName added succesfully !"),
+          actions: <Widget>[
+            TextButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const View_Medical_Images(),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
