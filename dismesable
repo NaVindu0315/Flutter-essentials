@@ -1,0 +1,29 @@
+Dismissible(
+  key: ObjectKey(index),
+  direction: DismissDirection.horizontal,
+  onDismissed: (direction) {
+    _deleteNotification(key);
+  },
+  background: Container(
+    decoration: BoxDecoration(
+      color: Colors.red,
+      borderRadius: BorderRadius.circular(16), // Add rounded corners
+    ),
+    padding: const EdgeInsets.symmetric(horizontal: 20),
+    child: Icon(
+      Icons.delete,
+      color: Colors.white,
+    ),
+    alignment: Alignment.centerLeft,
+  ),
+  child: Card(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16), // Add rounded corners
+    ),
+    elevation: 4,
+    child: ListTile(
+      title: Text(title ?? ''), // null check
+      subtitle: Text(msg ?? ''), // null check
+    ),
+  ),
+)
