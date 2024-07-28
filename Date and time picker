@@ -1,0 +1,55 @@
+String date_holder = "";
+  DateTime _selectedday = DateTime.now();
+  TimeOfDay starttime = TimeOfDay.now();
+  String time_holder = "";
+
+ @override
+  void initState() {
+    super.initState();
+    date_holder = DateFormat('yyyy-MM-dd').format(_selectedday);
+    DateTime newdt = DateTime(0, 0, 0, starttime.hour, starttime.minute);
+    time_holder = DateFormat('hh.mm a').format(newdt);
+  }
+
+
+ Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        OtherButton(
+                            press: () async {
+                              final DateTime? picked = await showDatePicker(
+                                context: context,
+                                initialDate: _selectedday,
+                                firstDate: DateTime(2020),
+                                lastDate: DateTime(2030),
+                              );
+                              if (picked != null) {
+                                setState(() {
+                                  _selectedday = picked;
+                                  date_holder =
+                                      DateFormat('yyyy-MM-dd').format(picked);
+                                  //Admmision_PlaceHolder = _admissioncontroller.text;
+                                });
+                              }
+                            },
+                            btnText: date_holder),
+                        OtherButton(
+                            press: () async {
+                              final TimeOfDay? timofday = await showTimePicker(
+                                context: context,
+                                initialTime: starttime,
+                                initialEntryMode: TimePickerEntryMode.dial,
+                              );
+                              if (timofday != null) {
+                                setState(() {
+                                  starttime = timofday;
+                                  DateTime dt = DateTime(0, 0, 0,
+                                      starttime.hour, starttime.minute);
+                                  time_holder =
+                                      DateFormat('hh.mm a').format(dt);
+                                });
+                              }
+                            },
+                            btnText: time_holder),
+                      ],
+                    ),
