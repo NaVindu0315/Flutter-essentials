@@ -1,0 +1,25 @@
+  void _showDoctorDetailsBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.5,
+          maxChildSize: 0.8,
+          expand: false,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Container(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Text('$_mobile'),
+                  Text('$_mobile'),
+                  Text('$_mobile'),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
