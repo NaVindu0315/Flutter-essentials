@@ -2,3 +2,20 @@ Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => detectapp()),
                       );
+
+
+//for backward
+
+Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => detectapp()),
+                      );
+
+
+//for forward
+
+
+ Navigator.push(
+                        context,
+                        SlidePageRoute(builder: (context) => NameScreen()),
+                      );
